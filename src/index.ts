@@ -17,12 +17,16 @@ process.stdin.on("data", (chunk) => {
  * Process the input once there is nothing else to read in stdin
  */
 process.stdin.on("end", () => {
-  const { cases, t } = parseInput(input);
+  const { cases } = parseInput(input);
+  /**
+   * Format the 2D array from nearestPixel into a collection of lines of integers denoting
+   * the distance to the nearest white pixel, separated by a `white space`
+   */
   const results = cases.map(({ n, m, matrix }) => {
     return nearestPixel(n, m, matrix).map((el) => el.join(" ")).join("\n");
-  });
+  }).join("\n\n");
 
   /* tslint:disable: no-console */
   console.clear();
-  console.log(results.join("\n"));
+  console.log(results);
 });

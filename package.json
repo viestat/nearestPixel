@@ -1,0 +1,29 @@
+{
+  "name": "nearestpixel",
+  "version": "1.0.0",
+  "description": "Solution to nearestPixel task",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viestat/nearestPixel.git"
+  },
+  "author": "Andrés C. Viesca",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/viestat/nearestPixel/issues"
+  },
+  "homepage": "https://github.com/viestat/nearestPixel#readme",
+  "devDependencies": {
+    "@types/jest": "^24.0.15",
+    "@types/node": "^12.6.2",
+    "jest": "^24.8.0",
+    "prettier": "^1.18.2",
+    "ts-jest": "^24.0.2",
+    "ts-node": "^8.3.0",
+    "tslint": "^5.18.0",
+    "typescript": "^3.5.3"
+  }
+}

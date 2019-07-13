@@ -29,13 +29,13 @@ The following needs to be installed in order to run this program:
 1. Install the dependencies by running: ` npm install`
 1. Run: ` npm build` 
 1. Run: ` npm start`
-1. Enter your input and signal exit with `^D`
+1. Enter your input and signal exit with `<Ctrl>+D`
 
 ## Input Details
 The input should comply to the following format:
 - The first line contains the number of test cases `t` (`1≤t≤1000`).
-The following lines contain t test cases separated by an empty line, where each is structured as follows:
-  - The first line has a pair of numbers `n`, `m` separated by a single space (`1<=n <=182` and `1<=m<=182`).
+The following lines contain `t` test cases separated by an empty line, where each is structured as follows:
+  - The first line contains the dimensions of the bitmap, representend by a pair of numbers `n` and `m` separated by a single space (`1<=n <=182` and `1<=m<=182`).
   - The following `n` lines of the test case are each the description of one line (of size `m`) of the bitmap.
 
 It should look like this:
@@ -52,9 +52,9 @@ It should look like this:
 ```
 
 ## Ouput Details
-The program will only print to the `stdout` once there is nothing else read in the `stdin`. This is trigered by using `<Ctrl>+C`.
+The program will only print to the `stdout` once there is nothing else read in the `stdin`. This is trigered by using `<Ctrl>+D`.
 
-The output is an collection of denoting the an integer with the neares distance to a white pixel, separated by a `white space`. The position of the integers correspond to the location of the pixels in each input case. So the output for the [input shown in the previous section](#input-details) would look like this:
+The output is a collection of lines of integers denoting the distance to the nearest white pixel, separated by a `white space`. The position of the integers corresponds to the location of the pixels in each input case. So the output for the [input shown in the previous section](#input-details) would look like this:
 ```
 0 1
 1 0

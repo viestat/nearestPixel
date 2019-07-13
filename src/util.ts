@@ -9,7 +9,7 @@
  */
 const parseInput = (input: string) => {
   const cases = [];
-  const lines = input.split("\n");
+  const lines = input.trim().split("\n");
   const t = parseInt(lines[0], 10);
   const rawCases = lines.slice(1).join("\n").split("\n\n");
   for (let i = 0; i < t; i++) {

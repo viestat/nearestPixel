@@ -1,10 +1,13 @@
 {
   "name": "nearestpixel",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Solution to nearestPixel task",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "start": "node dist/src/index.js",
+    "test": "tsc && jest --forceExit --coverage --verbose",
+    "build": "tsc",
+    "lint": "tslint --project ."
   },
   "repository": {
     "type": "git",

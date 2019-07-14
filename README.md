@@ -139,9 +139,10 @@ recorded at `result[i][j]` and if it is, replace it with the smaller one.
 We then proceed to "discovering" the immediate neighbors. To do so we have
 defined their locations in an **array of tuples** called `closePixels`. It
 contains 4 possible directions to discover (up, right, down, left). We verify if
-the neighbor exists within the dimensions of the bitmap and if it hasn't already
-been discovered. If this is the case we then enqueue the neighbor and keep the
-`root` reference the same as the parent.
+the neighbor exists within the dimensions of the bitmap and if its distance to
+the root is smaller. If this is the case we replace the distance for that
+location in the `result` array and then enqueue the neighbor with the same
+`root` reference as the parent.
 
 Once we run out of elements in the queue we should have the `response` array
 filled with all the minimum distances from white pixels.

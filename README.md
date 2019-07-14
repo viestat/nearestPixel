@@ -2,7 +2,7 @@
 
 Solution to **distance to the nearest white pixel** task.
 
-[![CircleCI](https://circleci.com/gh/viestat/nearestPixel.svg?style=svg)](https://circleci.com/gh/viestat/nearestPixel)
+[![CircleCI](https://circleci.com/gh/viestat/nearestPixel.svg?style=svg)](https://circleci.com/gh/viestat/nearestPixel) [![codecov](https://codecov.io/gh/viestat/nearestPixel/branch/master/graph/badge.svg)](https://codecov.io/gh/viestat/nearestPixel)
 
 ## Intro
 
@@ -24,6 +24,7 @@ should write the results to the **standard output**.
 - [Quick start](#quick-start)
 - [Input Details](#input-details)
 - [Output Details](#output-details)
+- [Approach](#approach)
 
 ## Requirements
 

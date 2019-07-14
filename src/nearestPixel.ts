@@ -29,10 +29,16 @@ const nearestPixel = (n: number, m: number, bitmap: number[][]): number[][] => {
           root: [i, j],
 
         });
+      } else if (pixel !== 0) {
+        throw new Error("Bitmap should only contain either 1 or 0");
       }
     });
     return acc;
   }, []);
+
+  if (queue.length === 0) {
+    throw new Error("Bitmap should contain at least one 1");
+  }
 
   /**
    * Check if the location is valid and if its distance to the root is smaller

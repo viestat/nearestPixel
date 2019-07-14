@@ -100,4 +100,41 @@ describe("NearestPixel", () => {
 
     testCases.forEach(testGen);
   });
+  describe("Returns with big input", () => {
+    const generateInput = (n: number, m: number) => {
+      // Generate random number (1 or 0)
+      const random = () => Math.floor(Math.random() * (2));
+      const bitmap = new Array(n).fill(null).map(() => new Array(m).fill(null).map(random));
+      return bitmap;
+    };
+    const testCases = [
+      {
+        input: generateInput(50, 50),
+        size: [50, 50],
+      },
+      {
+        input: generateInput(91, 91),
+        size: [91, 91],
+      },
+      {
+        input: generateInput(182, 182),
+        size: [182, 182],
+      },
+    ];
+
+    const testGen = (
+      spec: { input: number[][]; size: number[] },
+      i: number,
+    ) => {
+      const { input, size } = spec;
+      const n = size[0];
+      const m = size[1];
+      test(`Case ${i + 1}: Bitmap of size ${n}*${m}`, () => {
+        const result = nearestPixel(n, m, input);
+        expect(result).toBeTruthy();
+      });
+    };
+
+    testCases.forEach(testGen);
+  });
 });

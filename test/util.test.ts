@@ -1,33 +1,33 @@
-import { parseInput, formatOutput } from "../src/util";
+import { formatOutput, parseInput } from "../src/util";
 
 describe("Utilities", () => {
   describe("parseInput", () => {
     test("Parse whith one case", () => {
       const input = "1\n3 4\n0001\n0011\n0110";
       const expected = [
-          {
-            m: 4,
-            matrix: [[0, 0, 0, 1], [0, 0, 1, 1], [0, 1, 1, 0]],
-            n: 3,
-          },
-        ];
+        {
+          m: 4,
+          matrix: [[0, 0, 0, 1], [0, 0, 1, 1], [0, 1, 1, 0]],
+          n: 3,
+        },
+      ];
       const result = parseInput(input);
       expect(result).toEqual(expected);
     });
     test("Parse whith two cases", () => {
       const input = "2\n3 3\n000\n001\n011\n\n3 4\n0001\n0011\n0110";
       const expected = [
-          {
-            m: 3,
-            matrix: [[0, 0, 0], [0, 0, 1], [0, 1, 1]],
-            n: 3,
-          },
-          {
-            m: 4,
-            matrix: [[0, 0, 0, 1], [0, 0, 1, 1], [0, 1, 1, 0]],
-            n: 3,
-          },
-        ];
+        {
+          m: 3,
+          matrix: [[0, 0, 0], [0, 0, 1], [0, 1, 1]],
+          n: 3,
+        },
+        {
+          m: 4,
+          matrix: [[0, 0, 0, 1], [0, 0, 1, 1], [0, 1, 1, 0]],
+          n: 3,
+        },
+      ];
       const result = parseInput(input);
       expect(result).toEqual(expected);
     });

@@ -1,5 +1,5 @@
 import { nearestPixel } from "./nearestPixel";
-import { parseInput, formatOutput } from "./util";
+import { formatOutput, parseInput } from "./util";
 
 process.stdin.resume();
 process.stdin.setEncoding("ascii");

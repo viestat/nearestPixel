@@ -5,15 +5,13 @@ describe("Utilities", () => {
     test("Should parse whith one case", () => {
       const input = "1\n3 4\n0001\n0011\n0110";
       const expected = {
-        cases: [{
-          m: 4,
-          matrix: [
-            [0, 0, 0, 1],
-            [0, 0, 1, 1],
-            [0, 1, 1, 0],
-          ],
-          n: 3,
-        }],
+        cases: [
+          {
+            m: 4,
+            matrix: [[0, 0, 0, 1], [0, 0, 1, 1], [0, 1, 1, 0]],
+            n: 3,
+          },
+        ],
         t: 1,
       };
       const result = parseInput(input);
@@ -25,20 +23,12 @@ describe("Utilities", () => {
         cases: [
           {
             m: 3,
-            matrix: [
-              [0, 0, 0],
-              [0, 0, 1],
-              [0, 1, 1],
-            ],
+            matrix: [[0, 0, 0], [0, 0, 1], [0, 1, 1]],
             n: 3,
           },
           {
             m: 4,
-            matrix: [
-              [0, 0, 0, 1],
-              [0, 0, 1, 1],
-              [0, 1, 1, 0],
-            ],
+            matrix: [[0, 0, 0, 1], [0, 0, 1, 1], [0, 1, 1, 0]],
             n: 3,
           },
         ],
@@ -60,11 +50,7 @@ describe("Utilities", () => {
       const genExpectedCases = (t: number) => {
         return new Array(t).fill({
           m: 4,
-          matrix: [
-            [0, 0, 0, 1],
-            [0, 0, 1, 1],
-            [0, 1, 1, 0],
-          ],
+          matrix: [[0, 0, 0, 1], [0, 0, 1, 1], [0, 1, 1, 0]],
           n: 3,
         });
       };
@@ -92,8 +78,8 @@ describe("Utilities", () => {
         },
       ];
 
-      const testGen = (spec: { input: any; expected: any; }, i: number) => {
-        const { input, expected} = spec;
+      const testGen = (spec: { input: any; expected: any }, i: number) => {
+        const { input, expected } = spec;
         test(`Case ${i + 1}: Should parse whith ${expected.t} cases`, () => {
           const result = parseInput(input);
           expect(result).toEqual(expected);
@@ -104,7 +90,9 @@ describe("Utilities", () => {
     });
     test("Should fail if input has wrong shape", () => {
       const input = "2\n4 3\n0001\n0011\n0110";
-      expect(() => { parseInput(input); }).toThrow();
+      expect(() => {
+        parseInput(input);
+      }).toThrow();
     });
   });
 });

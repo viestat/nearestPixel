@@ -21,20 +21,22 @@ const nearestPixel = (n: number, m: number, bitmap: number[][]): number[][] => {
   // Relative position of adyacent pixels (respectively: up, right, down, left)
   const closePixels = [[1, 0], [0, 1], [-1, 0], [0, -1]];
   // Init queue with white pixel locations and a reference to itself as root
-  const queue = bitmap.reduce((acc: Array<{location: number[], root: number[]}>, row, i) => {
-    row.forEach((pixel, j) => {
-      if (pixel === 1) {
-        acc.push({
-          location: [i, j],
-          root: [i, j],
-
-        });
-      } else if (pixel !== 0) {
-        throw new Error("Bitmap should only contain either 1 or 0");
-      }
-    });
-    return acc;
-  }, []);
+  const queue = bitmap.reduce(
+    (acc: Array<{ location: number[]; root: number[] }>, row, i) => {
+      row.forEach((pixel, j) => {
+        if (pixel === 1) {
+          acc.push({
+            location: [i, j],
+            root: [i, j],
+          });
+        } else if (pixel !== 0) {
+          throw new Error("Bitmap should only contain either 1 or 0");
+        }
+      });
+      return acc;
+    },
+    [],
+  );
 
   if (queue.length === 0) {
     throw new Error("Bitmap should contain at least one 1");
@@ -59,7 +61,7 @@ const nearestPixel = (n: number, m: number, bitmap: number[][]): number[][] => {
   while (queue.length > 0) {
     // Process first element of the queue
     const current = queue.shift();
-    const {location, root} = current!;
+    const { location, root } = current!;
     // indexes for the current element
     const [currI, currJ] = location;
     // Number of possible neighbouring pixels
@@ -83,7 +85,6 @@ const nearestPixel = (n: number, m: number, bitmap: number[][]): number[][] => {
         });
       }
     }
-
   }
   return result;
 };

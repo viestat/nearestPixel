@@ -5,7 +5,10 @@
  * t test cases separated by an empty line, where each is structured as follows:
  * - The first line has a pair of numbers n, m separated by a single space, 1<=n <=182, 1<=m<=182.
  * - The following n lines of the test case is the description of one line of the bitmap.
- * @returns Object with parsed elements
+ * @returns Array of Objects with, each with the following items:
+ * - `n` - Number of lines
+ * - `m` - Number of colums
+ * - `matrix` - 2D Array of integers
  */
 const parseInput = (input: string) => {
   const cases = [];

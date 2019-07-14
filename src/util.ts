@@ -23,10 +23,22 @@ const parseInput = (input: string) => {
     });
     cases.push({ n, m, matrix });
   }
-  return {
-    cases,
-    t,
-  };
+  return cases;
 };
 
-export { parseInput };
+/**
+ * Format the 2D array into a collection of lines of integers denoting
+ * the distance to the nearest white pixel, separated by a `white space`
+ * @param cases - 2D array of integers
+ * @returns String composed by a collection of lines of integers denoting the distance
+ * to the nearest white pixel, separated by a `white space`
+ */
+const formatOutput = (results: number[][]) => {
+  return results
+    .map((line) => {
+      return line.join(" ");
+    })
+    .join("\n");
+};
+
+export { parseInput, formatOutput };

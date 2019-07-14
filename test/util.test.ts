@@ -88,11 +88,34 @@ describe("Utilities", () => {
 
       testCases.forEach(testGen);
     });
-    test("Should fail if input has wrong shape", () => {
+    test("Fail if input has wrong shape", () => {
       const input = "2\n4 3\n0001\n0011\n0110";
       expect(() => {
         parseInput(input);
       }).toThrow();
+    });
+  });
+  describe("formatOutput", () => {
+    describe("Format succesfully", () => {
+      const testCases = [
+        {
+          expected: "0 1\n1 0",
+          input: [[0, 1], [1, 0]],
+        },
+        {
+          expected: "0 1 1 0\n0 1 1 1\n0 0 1 1\n1 0 1 1",
+          input: [[0, 1, 1, 0], [0, 1, 1, 1], [0, 0, 1, 1], [1, 0, 1, 1]],
+        },
+      ];
+
+      const testGen = (spec: { input: any; expected: string }, i: number) => {
+        const { input, expected } = spec;
+        test(`Case ${i + 1}`, () => {
+          const result = formatOutput(input);
+          expect(result).toEqual(expected);
+        });
+      };
+      testCases.forEach(testGen);
     });
   });
 });

@@ -35,15 +35,16 @@ const nearestPixel = (n: number, m: number, bitmap: number[][]): number[][] => {
   }, []);
 
   /**
-   * Check if the location is valid and if it has been discovered
-   * @param i - First point
-   * @param j - Second point
+   * Check if the location is valid and if its distance to the root is smaller
+   * @param neighbor - location of the pixel to check
+   * @param root - location of the root pixel
    */
-  const canAdd = (i: number, j: number) => {
-    // Check for out of bounds
+  const canAdd = (pixel: number[], root: number[]) => {
+    const [i, j] = pixel;
+    // Check if location is within bitmap dimensions
     if (i >= 0 && i < n && j >= 0 && j < m) {
-      // Check for discovered
-      return result[i][j] === Infinity;
+      // Check for distance to root
+      return result[i][j] > calcDistance([i, j], root);
     }
     return false;
   };
@@ -52,18 +53,15 @@ const nearestPixel = (n: number, m: number, bitmap: number[][]): number[][] => {
   while (queue.length > 0) {
     // Process first element of the queue
     const current = queue.shift();
-    if (!current) {
-      break;
-    }
-    const {location, root} = current;
+    const {location, root} = current!;
     // indexes for the current element
     const [currI, currJ] = location;
     // Number of possible neighbouring pixels
     const neighbours = closePixels.length;
-    const distanceToRoot = calcDistance(root, location);
+    const currentToRoot = calcDistance(root, location);
 
-    if (distanceToRoot < result[currI][currJ]) {
-      result[currI][currJ] = distanceToRoot;
+    if (currentToRoot < result[currI][currJ]) {
+      result[currI][currJ] = currentToRoot;
     }
 
     // Add adyacent pixels to the queue
@@ -71,7 +69,8 @@ const nearestPixel = (n: number, m: number, bitmap: number[][]): number[][] => {
       const direction = closePixels[i];
       const nextI = direction[0] + currI;
       const nextJ = direction[1] + currJ;
-      if (canAdd(nextI, nextJ)) {
+      if (canAdd([nextI, nextJ], root)) {
+        result[nextI][nextJ] = calcDistance([nextI, nextJ], root);
         queue.push({
           location: [nextI, nextJ],
           root,
